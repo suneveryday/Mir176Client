@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="622" viewBox="0 0 600 622" role="img" aria-labelledby="title desc">
+  <title id="title">Mir176Client 安装组合</title>
+  <desc id="desc">程序包和完整资源解压到同一个新目录，校验通过后启动游戏。</desc>
+  <rect width="600" height="622" rx="8" fill="#f4efdf"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,sans-serif">
+    <text x="38" y="62" fill="#775629" font-size="26">MIR176CLIENT / WINDOWS PC</text>
+    <text x="38" y="113" fill="#22292c" font-size="36" font-weight="600">两个包，一套完整客户端。</text>
+    <rect x="38" y="155" width="524" height="116" rx="8" fill="#e8dfca"/>
+    <text x="64" y="203" fill="#22292c" font-size="32" font-weight="600">程序包 + 完整资源</text>
+    <text x="64" y="244" fill="#5a615b" font-size="27">解压到同一新目录</text>
+    <path d="M300 285V311M290 301L300 311L310 301" stroke="#775629" stroke-width="3" fill="none"/>
+    <rect x="38" y="325" width="524" height="116" rx="8" fill="#22292c"/>
+    <text x="64" y="373" fill="#f4efdf" font-size="32" font-weight="600">离线文件校验</text>
+    <text x="64" y="414" fill="#cda766" font-size="27">运行 Check-Client.cmd</text>
+    <path d="M300 455V481M290 471L300 481L310 471" stroke="#775629" stroke-width="3" fill="none"/>
+    <rect x="38" y="495" width="524" height="91" rx="8" fill="#e8dfca"/>
+    <text x="64" y="550" fill="#22292c" font-size="32" font-weight="600">打开登录器，连接游戏</text>
+  </g>
+</svg>

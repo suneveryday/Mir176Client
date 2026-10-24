@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="344" viewBox="0 0 1200 344" role="img" aria-labelledby="title desc">
+  <title id="title">Mir176Client：两个下载包，一套完整客户端</title>
+  <desc id="desc">下载 Client-Program 与 Resources，解压到同一个新目录；运行 Check-Client 校验后，通过登录器进入游戏。</desc>
+  <rect width="1200" height="344" rx="8" fill="#f4efdf"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,sans-serif">
+    <text x="54" y="59" fill="#775629" font-size="20" letter-spacing="3">MIR176CLIENT / WINDOWS PC</text>
+    <text x="54" y="113" fill="#22292c" font-size="38" font-weight="650">两个下载包，一套完整客户端。</text>
+    <path d="M54 140H1146" stroke="#c3b79c"/>
+    <g id="program">
+      <rect x="54" y="171" width="240" height="102" rx="8" fill="#e8dfca"/>
+      <text x="77" y="211" fill="#22292c" font-size="28" font-weight="600">程序包</text>
+      <text x="77" y="247" fill="#5a615b" font-size="21">EXE + 登录器</text>
+    </g>
+    <text x="313" y="235" fill="#775629" font-size="32">+</text>
+    <g id="resources">
+      <rect x="353" y="171" width="240" height="102" rx="8" fill="#e8dfca"/>
+      <text x="376" y="211" fill="#22292c" font-size="28" font-weight="600">完整资源</text>
+      <text x="376" y="247" fill="#5a615b" font-size="21">地图 · 图像 · 音效</text>
+    </g>
+    <path d="M610 222H647M637 212L647 222L637 232" stroke="#775629" stroke-width="2" fill="none"/>
+    <g id="verification">
+      <rect x="665" y="171" width="212" height="102" rx="8" fill="#22292c"/>
+      <text x="688" y="211" fill="#f4efdf" font-size="28" font-weight="600">离线校验</text>
+      <text x="688" y="247" fill="#cda766" font-size="21">Check-Client</text>
+    </g>
+    <path d="M894 222H931M921 212L931 222L921 232" stroke="#775629" stroke-width="2" fill="none"/>
+    <g id="launch">
+      <rect x="949" y="171" width="197" height="102" rx="8" fill="#e8dfca"/>
+      <text x="972" y="211" fill="#22292c" font-size="28" font-weight="600">开始游戏</text>
+      <text x="972" y="247" fill="#5a615b" font-size="21">连接服务器</text>
+    </g>
+    <text x="54" y="314" fill="#5a615b" font-size="18">两个 ZIP 解压到同一新目录。服务端与独立登录器源码：Mir176。</text>
+  </g>
+</svg>
