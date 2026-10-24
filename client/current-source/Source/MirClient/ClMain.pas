@@ -18,7 +18,7 @@ uses
   Grobal2, Actor, HumanActor, StdCtrls, cliUtil, ExtCtrls, HUtil32,
   EDcode, DWinCtl, GList, MMSystem, MaketSystem, Math, ClFunc, magiceff,
   SoundUtil, clEvent, IniFiles, HashList, MShare, MD5, uSMBIOS, D7ScktComp,
-  DCPcrypt, Mars, StallSystem, zlib, CommCtrl, LegacyServerWire, LegacyItemWire, Mir2HomeGameState, ClassicClientPolicy;
+  DCPcrypt, Mars, StallSystem, zlib, CommCtrl, LegacyServerWire, LegacyItemWire, Mir2HomeGameState, ClassicClientPolicy, ClientEnvironmentCheck;
 
 var
   g_MoveBusy: Boolean = False;
@@ -13795,130 +13795,13 @@ begin
 end;
 
 procedure TfrmMain.CheckHackTimerTimer(Sender: TObject);
-// const
-// busy: boolean = FALSE;
-// 检测隐藏工具
-  function CheckHideToolz(sCaption: string): Boolean;
-  const
-    SE_Shell_TrayWnd_NAME = 'Shell_TrayWnd';
-    SE_TrayNotifyWnd_NAME = 'TrayNotifyWnd';
-    SE_SysPager_NAME = 'SysPager';
-    SE_ToolbarWindow32_NAME = 'ToolbarWindow32';
-  var
-    ToolBarHnd: Cardinal;
-    hProc: HWND;
-    dwPID: DWORD;
-    lpCommon: Pointer;
-    btnInfo: TTBBUTTON;
-    dwBytes: NativeUInt;
-    TrayIconCaption: array [0 .. 512] of Char;
-    i, nBtnCount: Integer;
-  begin
-    Result := False;
-    ToolBarHnd := FindWindowEx(0, 0, SE_Shell_TrayWnd_NAME, nil);
-    ToolBarHnd := FindWindowEx(ToolBarHnd, 0, SE_TrayNotifyWnd_NAME, nil);
-    ToolBarHnd := FindWindowEx(ToolBarHnd, 0, SE_SysPager_NAME, nil);
-    ToolBarHnd := FindWindowEx(ToolBarHnd, 0, SE_ToolbarWindow32_NAME, nil);
-    if ToolBarHnd = 0 then
-    begin
-      Result := True;
-      Exit;
-    end;
-    GetWindowThreadProcessId(ToolBarHnd, @dwPID);
-    hProc := OpenProcess(PROCESS_VM_OPERATION or PROCESS_VM_READ or
-      PROCESS_VM_WRITE, False, dwPID);
-    lpCommon := VirtualAllocEx(hProc, nil, 4096, MEM_RESERVE or MEM_COMMIT,
-      PAGE_READWRITE);
-    nBtnCount := SendMessage(ToolBarHnd, TB_BUTTONCOUNT, 0, 0);
-    for i := 0 to nBtnCount do
-    begin
-
-      ZeroMemory(@btnInfo, SizeOf(btnInfo));
-      WriteProcessMemory(hProc, lpCommon, @btnInfo, SizeOf(btnInfo), dwBytes);
-      SendMessage(ToolBarHnd, TB_GETBUTTON, i, lParam(lpCommon));
-      ReadProcessMemory(hProc, lpCommon, @btnInfo, SizeOf(btnInfo), dwBytes);
-      SendMessage(ToolBarHnd, TB_GETBUTTONTEXT, btnInfo.idCommand,
-        lParam(lParam(lpCommon) + SizeOf(btnInfo)));
-      ReadProcessMemory(hProc, Pointer(lParam(lpCommon) + SizeOf(btnInfo)),
-        @TrayIconCaption, 512, dwBytes);
-      OutputDebugString(TrayIconCaption);
-      if SameText(TrayIconCaption, sCaption) then
-      begin
-        Result := True;
-        break;
-      end;
-    end;
-    VirtualFreeEx(hProc, lpCommon, 0, MEM_RELEASE);
-    CloseHandle(hProc);
-  end;
-
-// 检测调试
-  function IsSlefRemoteDebuggerPresent(): Boolean;
-  var
-    Func_Addr: Pointer;
-    hModule: Cardinal;
-    pDebugBool: PBool;
-  begin
-    Result := False;
-    hModule := GetModuleHandle(kernel32);
-    if hModule = INVALID_HANDLE_VALUE then
-      Exit;
-    Func_Addr := GetProcAddress(hModule, 'CheckRemoteDebuggerPresent');
-    if (Func_Addr <> nil) then
-    begin
-      asm
-        lea     eax, pDebugBool
-        push    eax
-        push    $ffffffff
-        call    Func_addr
-        cmp     dword ptr[pDebugBool], 0
-        jne     @IsDebug
-        jmp     @exit
-
-      @IsDebug:
-        mov     @result, 1
-
-      @exit:
-      end;
-    end;
-  end;
-
-// 检测是否被HOOK
-  function IsSlefApiHook(): Boolean;
-  const
-    wsock32 = 'wsock32.dll';
-  var
-    PNum: Pointer;
-    lpBuffer: pByte;
-    lpNumberOfBytesRead: NativeUInt;
-    DllHandle: Cardinal;
-  begin
-    DllHandle := LoadLibrary(wsock32);
-    lpBuffer := AllocMem(4);
-    try
-      PNum := GetProcAddress(DllHandle, 'recv');
-      ReadProcessMemory(GetCurrentProcess(), PNum, lpBuffer, 4,
-        lpNumberOfBytesRead);
-      if (IntToHex(lpBuffer^, 4) = '008B') or (IntToHex(lpBuffer^, 4) = '0055')
-      then
-        Result := False
-      else
-        Result := True;
-    finally
-      FreeMem(lpBuffer);
-    end;
-  end;
-
-var
-  FileName: string;
-  // ahour, amin, asec, amsec: word;
-  // tcount, timertime: longword;
 begin
-  FileName := ExtractFileName(Application.Exename);
-  if CheckHideToolz(FileName) or IsSlefRemoteDebuggerPresent or IsSlefApiHook
-  then
+  // Explorer controls and system DLL instruction bytes are not cheat evidence.
+  // Only a successful documented debugger query may stop this client.
+  if QueryClientDebuggerState = cdsAttached then
   begin
-    FrmDlg.DMessageDlg('你正在使用非法外挂，请关闭外挂后再进入游戏.', [mbOk]);
+    CheckHackTimer.Enabled := False;
+    FrmDlg.DMessageDlg('检测到调试器已附加到游戏进程，请结束调试后重新启动游戏。', [mbOk]);
     frmMain.Close;
   end;
 end;

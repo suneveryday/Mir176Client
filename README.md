@@ -56,7 +56,7 @@ python3 tools/check-privacy.py
 python3 -m unittest discover -s tests/release-packaging -v
 ```
 
-当前客户端 **0.1.5** 配套服务端 **0.1.4**、登录器 **0.1.6**。完整服务端、PC、GM 与 bot 运行组合仍为 `pending_runtime_validation`，该预览版不代表逐参数认证的 2003 官方客户端。
+当前客户端 **0.1.6** 配套服务端 **0.1.4**、登录器 **0.1.6**。完整服务端、PC、GM 与 bot 运行组合仍为 `pending_runtime_validation`，该预览版不代表逐参数认证的 2003 官方客户端。
 
 ## 来源与许可
 

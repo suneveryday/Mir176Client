@@ -3,14 +3,14 @@
   "project": "Mir176Client",
   "files": {
     "client/current-source/Source/Common/Grobal2.pas": "cdee40afb613a04ade89a4ea850d3ddba0e4bed83a28d92151d0ba49168b3078",
-    "client/current-source/Source/MirClient/ClMain.pas": "d862363c4f231ac424c0413328ce4cd61aef883e5298b446f245d92e6b983aaf",
+    "client/current-source/Source/MirClient/ClMain.pas": "fdcd3dd11bc52aceb4093cf28ebaea66910c5916625860ef8b693d3a2235b74f",
     "client/current-source/Source/MirClient/ClFunc.pas": "21bdfe8aa102cea5101c5b02f6945f98fc038cc42daf35efdd5284ba43c836bb",
     "client/current-source/Source/MirClient/LegacyServerWire.pas": "510126a7b4ce4bc369d77dc3412f2c4516df20b4eca4723fa4ad30d01767c7b2",
     "client/current-source/Source/MirClient/LegacyItemWire.pas": "fc7c64b9ea7f45e5e4763dfafc851a9c6332fe42f2e876cc3cbede563cc1658a",
     "client/current-source/Source/MirClient/HumanActor.pas": "4da8ff4223597861b9f0fc6e302ebb80179277656c5fddccfcd484deb81be274",
     "client/current-source/Source/MirClient/Mir2HomeStartup.pas": "d474cb1bb9807e6e2ac4ffe0a5b7d46470d0495719e59d24bc46542d5f9f5ac3",
     "client/current-source/Source/MirClient/Mir2HomeGameState.pas": "dcdcca570301ebc46077b274f6aa5b35f0133213fc9246a3f5133a28e6fbf6c3",
-    "client/current-source/Source/MirClient/MirClinet.dproj": "338def7e80ad1138a86c405d74f94a77d9d421bf5d6ac887eb395660b8192ff1",
+    "client/current-source/Source/MirClient/MirClinet.dproj": "5b3dfeb53971ac7aa161233fa76771a90aafcc02135f1cba6e37334813c78219",
     "resources/manifest.json": "ca77a19cb58097294a1f36e23a871cc5dead654671d4f7faa93742bdcd409c42",
     "client/package/Configure-Classic.ps1": "be432720fe9d425749c744204d3449b2c82e4b08cdda981bbb97c05acebe65e4",
     "client/current-source/Source/MirClient/FState.pas": "3294d192b7d21d4310144e276f97052c3f4f958f4299c47d9c6b6845af5a9b8d",
@@ -18,10 +18,11 @@
     "client/current-source/Source/MirClient/ClassicCharacterPanel.inc": "a6f1916d8276b8fde9baae93a65029194a7f76d820e892142fd713503c00ef2c",
     "client/package/Check-Client.ps1": "80d090f30637840c0417d71eb04f9a1eecfbc4a46c5d984a6121a29c9b2372cc",
     "client/package/Check-Client.cmd": "3bfac658586d2ff8bed0617aaad937d3d9f6b69fff22cb75fe61d41d72d69013",
-    "distribution.json": "e68e0acf51f9d5bc63a50d177597256982966c5e3244b2cd11d7e2a691c69834",
+    "distribution.json": "db7eb53d3445030856bbec44609c146864e6efab337005104ca470bf45e94772",
     "tools/check-release-package.py": "93222d93c7549e8b9294d4484bf0da0294ef133bd343fcfc5737b4fefbab9ed5",
     "tools/prepare-modular-client.py": "56dc01f9cde4a632a3e63d4d1706b5a22c9e35a1bedadb8f774c213b800ec0cf",
-    "resources/server-maps.json": "350173d4537e0f125655201f0756ba1260de63fd43b707fd280a7d29416bfa45"
+    "resources/server-maps.json": "350173d4537e0f125655201f0756ba1260de63fd43b707fd280a7d29416bfa45",
+    "client/current-source/Source/MirClient/ClientEnvironmentCheck.pas": "65cee0c8d06d2ce5b74e4409597d2714c10a69e4547e39f9306b6a8dc63ecbea"
   },
-  "review_sha256": "dc37b3261b4162dfe92665abf2f7427a43dd6537d164dafedfe24329b77e100d"
+  "review_sha256": "af3e338faadee4faebbe02ffe53133d4a04b6bd559e0953cae552808d56e8c23"
 }

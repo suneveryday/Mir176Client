@@ -1,4 +1,4 @@
-Mir176 Windows client 0.1.5
+Mir176 Windows client 0.1.6
 
 1. Extract Client-Program and matching Resources ZIPs into the SAME NEW folder.
    Map, Resource, Wav and Data must be beside Mir2Classic176.exe.

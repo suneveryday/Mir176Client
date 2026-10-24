@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "Mir176Client",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "provides": {},
   "requires": {
     "mir2-legacy-wire": "v1",
